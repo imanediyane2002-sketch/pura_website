@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Découvrez la gamme complète PURA — soins naturels certifiés Ecocert, formulés avec des ingrédients 100% naturels et recommandés par l'IA." />
+  <title>Produits — PURA Soins Naturels</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232E8B57'/><text y='.9em' font-size='70' x='18' font-family='serif' fill='white'>P</text></svg>" />
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Navigation principale">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">P</div>
+        <span class="nav-logo-text">PURA</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html" class="active">Produits</a></li>
+        <li><a href="skin-ai.html">Skin AI</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="skin-ai.html" class="btn btn-primary">Diagnostic Gratuit</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menu mobile"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero" aria-label="En-tête produits">
+    <div class="container">
+      <span class="section-label" style="justify-content:center">La Gamme PURA</span>
+      <h1>Des soins d'exception,<br><em class="italic" style="color:var(--sage)">formulés par la nature</em></h1>
+      <p>Chaque produit PURA est certifié Ecocert, conditionné durablement et recommandé par notre IA selon votre profil de peau.</p>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <section style="background:var(--white);padding:20px 0;border-bottom:1px solid rgba(0,0,0,0.06)">
+    <div class="container" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:0.82rem;font-weight:600;color:var(--text-light);letter-spacing:0.5px">FILTRER :</span>
+      <button onclick="filterProducts('all', this)" class="btn btn-primary" style="padding:8px 20px;font-size:0.82rem">Tous</button>
+      <button onclick="filterProducts('serum', this)" class="btn btn-outline" style="padding:8px 20px;font-size:0.82rem">Sérums</button>
+      <button onclick="filterProducts('masque', this)" class="btn btn-outline" style="padding:8px 20px;font-size:0.82rem">Masques</button>
+      <button onclick="filterProducts('huile', this)" class="btn btn-outline" style="padding:8px 20px;font-size:0.82rem">Huiles</button>
+      <button onclick="filterProducts('bundle', this)" class="btn btn-outline" style="padding:8px 20px;font-size:0.82rem">Bundles</button>
+    </div>
+  </section>
+
+  <main class="products-full section-pad" aria-label="Catalogue produits">
+    <div class="container">
+      <div class="products-grid-full" id="productsGrid">
+
+        <!-- Sérum Vitamine C -->
+        <article class="product-card-full reveal" data-category="serum">
+          <div class="product-image-full bg-1">
+            <div class="product-visual amber" style="height:200px">
+              <div class="pv-cap"></div>
+              <span class="pv-label">SÉRUM<br>VITAMINE C</span>
+            </div>
+            <span class="product-badge">Bestseller</span>
+          </div>
+          <div class="product-details">
+            <h3>Sérum Éclat Vitamine C</h3>
+            <p class="product-desc">Illumine le teint, réduit les taches pigmentaires et stimule la synthèse de collagène naturel. Résultats visibles dès 2 semaines.</p>
+            <ul class="product-benefits">
+              <li>Anti-taches et éclat immédiat</li>
+              <li>Antioxydant puissant</li>
+              <li>Stimulation du collagène</li>
+              <li>Adapté à tous types de peau</li>
+            </ul>
+            <div class="ingredients-bar">
+              <div class="ing-label">Ingrédients clés</div>
+              <div class="ing-tags">
+                <span class="ing-tag">Vitamine C stabilisée</span>
+                <span class="ing-tag">Acide hyaluronique</span>
+                <span class="ing-tag">Romarin bio</span>
+                <span class="ing-tag">Niacinamide</span>
+              </div>
+            </div>
+            <div class="product-footer" style="margin-bottom:16px">
+              <div class="product-price">280 MAD <span>/ 30ml</span></div>
+              <span style="font-size:0.75rem;background:rgba(46,139,87,0.08);color:var(--sage);padding:4px 10px;border-radius:20px;font-weight:500">🌿 Ecocert</span>
+            </div>
+            <button class="add-to-cart">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+              Ajouter au panier
+            </button>
+          </div>
+        </article>
+
+        <!-- Booster Collagène -->
+        <article class="product-card-full reveal" data-category="serum">
+          <div class="product-image-full bg-2">
+            <div class="product-visual gold-dark" style="height:200px">
+              <div class="pv-cap"></div>
+              <span class="pv-label">BOOSTER<br>COLLAGÈNE</span>
+            </div>
+            <span class="product-badge">Nouveau</span>
+          </div>
+          <div class="product-details">
+            <h3>Booster Collagène</h3>
+            <p class="product-desc">Redensifie et raffermit la peau en profondeur. Action anti-âge visible dès 4 semaines pour une peau rebondie et revitalisée.</p>
+            <ul class="product-benefits">
+              <li>Raffermissement cutané profond</li>
+              <li>Réduction des rides d'expression</li>
+              <li>Effet lifting naturel</li>
+              <li>Peau rebondie et lumineuse</li>
+            </ul>
+            <div class="ingredients-bar">
+              <div class="ing-label">Ingrédients clés</div>
+              <div class="ing-tags">
+                <span class="ing-tag">Peptides végétaux</span>
+                <span class="ing-tag">Huile d'argan bio</span>
+                <span class="ing-tag">Grenade</span>
+                <span class="ing-tag">Rétinol végétal</span>
+              </div>
+            </div>
+            <div class="product-footer" style="margin-bottom:16px">
+              <div class="product-price">350 MAD <span>/ 30ml</span></div>
+              <span style="font-size:0.75rem;background:rgba(46,139,87,0.08);color:var(--sage);padding:4px 10px;border-radius:20px;font-weight:500">🌿 Ecocert</span>
+            </div>
+            <button class="add-to-cart">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+              Ajouter au panier
+            </button>
+          </div>
+        </article>
+
+        <!-- Masque Hydratant -->
+        <article class="product-card-full reveal" data-category="masque">
+          <div class="product-image-full bg-3">
+            <div class="product-visual deep-blue" style="height:200px;border-radius:12px">
+              <div class="pv-cap"></div>
+              <span class="pv-label">MASQUE<br>HYDRATANT<br>INTENSE</span>
+            </div>
+            <span class="product-badge">Top-rated</span>
+          </div>
+          <div class="product-details">
+            <h3>Masque Hydratant Intense</h3>
+            <p class="product-desc">Réservoir d'hydratation pour peau sèche ou déshydratée. Application 2×/semaine pour une peau repulpée et confortable toute la journée.</p>
+            <ul class="product-benefits">
+              <li>Hydratation 72h prouvée</li>
+              <li>Effet repulpant immédiat</li>
+              <li>Apaise les rougeurs</li>
+              <li>Idéal peaux sensibles</li>
+            </ul>
+            <div class="ingredients-bar">
+              <div class="ing-label">Ingrédients clés</div>
+              <div class="ing-tags">
+                <span class="ing-tag">Aloe vera bio</span>
+                <span class="ing-tag">Acide hyaluronique 3D</span>
+                <span class="ing-tag">Fleur d'oranger</span>
+                <span class="ing-tag">Beurre de karité</span>
+              </div>
+            </div>
+            <div class="product-footer" style="margin-bottom:16px">
+              <div class="product-price">220 MAD <span>/ 75ml</span></div>
+              <span style="font-size:0.75rem;background:rgba(46,139,87,0.08);color:var(--sage);padding:4px 10px;border-radius:20px;font-weight:500">🌿 Ecocert</span>
+            </div>
+            <button class="add-to-cart">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+              Ajouter au panier
+            </button>
+          </div>
+        </article>
+
+        <!-- Huile Précieuse Nuit -->
+        <article class="product-card-full reveal" data-category="huile">
+          <div class="product-image-full" style="background:linear-gradient(135deg,#2a2016,#3d3020)">
+            <div class="product-visual night" style="height:200px">
+              <div class="pv-cap"></div>
+              <span class="pv-label">HUILE<br>PRÉCIEUSE<br>NUIT</span>
+            </div>
+            <span class="product-badge gold-badge">Premium</span>
+          </div>
+          <div class="product-details">
+            <h3>Huile Précieuse Nuit</h3>
+            <p class="product-desc">Récupération nocturne intensive. Un mélange synergique de 15 huiles précieuses pour une régénération cellulaire maximale pendant le sommeil.</p>
+            <ul class="product-benefits">
+              <li>Régénération nocturne intense</li>
+              <li>Anti-rides et nourrissant</li>
+              <li>Texture sèche non grasse</li>
+              <li>Parfum naturel floral boisé</li>
+            </ul>
+            <div class="ingredients-bar">
+              <div class="ing-label">Ingrédients clés</div>
+              <div class="ing-tags">
+                <span class="ing-tag">Rose musquée</span>
+                <span class="ing-tag">Jojoba bio</span>
+                <span class="ing-tag">Nigelle marocaine</span>
+                <span class="ing-tag">Bakuchiol</span>
+              </div>
+            </div>
+            <div class="product-footer" style="margin-bottom:16px">
+              <div class="product-price">320 MAD <span>/ 30ml</span></div>
+              <span style="font-size:0.75rem;background:rgba(46,139,87,0.08);color:var(--sage);padding:4px 10px;border-radius:20px;font-weight:500">🌿 Ecocert</span>
+            </div>
+            <button class="add-to-cart">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+              Ajouter au panier
+            </button>
+          </div>
+        </article>
+
+        <!-- Bundle Bien-être Total -->
+        <article class="product-card-full reveal" data-category="bundle" style="grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1.5fr">
+          <div class="product-image-full" style="background:linear-gradient(135deg,#e8f2ec,#c8e8d4);height:auto;min-height:280px">
+            <div style="display:flex;gap:16px;align-items:center;padding:32px">
+              <div class="product-visual amber" style="height:160px;width:70px">
+                <span class="pv-label" style="font-size:0.55rem">SÉRUM<br>VIT C</span>
+              </div>
+              <div class="product-visual gold-dark" style="height:140px;width:60px">
+                <span class="pv-label" style="font-size:0.5rem">BOOST<br>COLL</span>
+              </div>
+              <div class="product-visual deep-blue" style="height:120px;width:60px;border-radius:10px">
+                <span class="pv-label" style="font-size:0.5rem">MASQUE</span>
+              </div>
+              <div class="product-visual night" style="height:150px;width:65px">
+                <span class="pv-label" style="font-size:0.5rem">HUILE<br>NUIT</span>
+              </div>
+            </div>
+            <span class="product-badge gold-badge" style="top:16px;right:16px">Économisez 20%</span>
+          </div>
+          <div class="product-details">
+            <h3>Bundle Bien-être Total ✨</h3>
+            <p class="product-desc">La routine PURA complète en un coffret cadeau de luxe. Les 4 produits iconiques de la gamme dans un écrin en carton recyclé avec manuel de routine personnalisée.</p>
+            <ul class="product-benefits">
+              <li>Sérum Éclat Vitamine C (30ml)</li>
+              <li>Booster Collagène (30ml)</li>
+              <li>Masque Hydratant Intense (75ml)</li>
+              <li>Huile Précieuse Nuit (30ml)</li>
+              <li>Guide de routine PURA + QR code diagnostic IA</li>
+            </ul>
+            <div class="product-footer" style="margin-bottom:16px">
+              <div>
+                <div class="product-price">940 MAD <span>/ coffret complet</span></div>
+                <div style="font-size:0.8rem;color:var(--text-light);text-decoration:line-through">Valeur : 1 170 MAD</div>
+              </div>
+              <span style="background:var(--gold);color:var(--white);font-size:0.75rem;padding:6px 14px;border-radius:20px;font-weight:600">-20%</span>
+            </div>
+            <button class="add-to-cart" style="background:var(--gold)">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+              Offrir le coffret
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta-banner" aria-label="Appel à l'action">
+    <div class="container">
+      <h2>Pas sûr(e) de quel produit vous convient ?</h2>
+      <p>Notre diagnostic IA analyse votre peau en 60 secondes et recommande les produits parfaits pour votre profil.</p>
+      <div class="cta-buttons">
+        <a href="skin-ai.html" class="btn btn-white">Lancer mon diagnostic gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <footer aria-label="Pied de page">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:12px">
+            <div class="nav-logo-mark">P</div>
+            <span class="nav-logo-text">PURA</span>
+          </a>
+          <p>La première marque marocaine de soins naturels certifiés avec diagnostic IA personnalisé.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+            <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+          </div>
+        </div>
+        <nav class="footer-col">
+          <h5>Produits</h5>
+          <ul>
+            <li><a href="produits.html">Sérum Vitamine C</a></li>
+            <li><a href="produits.html">Booster Collagène</a></li>
+            <li><a href="produits.html">Masque Hydratant</a></li>
+            <li><a href="produits.html">Huile Nuit</a></li>
+            <li><a href="produits.html">Bundle Complet</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col">
+          <h5>La marque</h5>
+          <ul>
+            <li><a href="about.html">Notre histoire</a></li>
+            <li><a href="skin-ai.html">PURA Skin AI</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col footer-newsletter">
+          <h5>Newsletter</h5>
+          <p>Nouveautés et offres exclusives.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="votre@email.com" required />
+            <button type="submit">OK</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 PURA — Tous droits réservés.</p>
+        <div class="footer-certs"><span>🌿 Ecocert</span><span>🐰 Cruelty Free</span><span>✡️ Halal</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function filterProducts(cat, btn) {
+      document.querySelectorAll('[onclick^="filterProducts"]').forEach(b => {
+        b.className = 'btn btn-outline';
+        b.style.cssText = 'padding:8px 20px;font-size:0.82rem';
+      });
+      btn.className = 'btn btn-primary';
+      btn.style.cssText = 'padding:8px 20px;font-size:0.82rem';
+      document.querySelectorAll('#productsGrid article').forEach(card => {
+        const show = cat === 'all' || card.dataset.category === cat;
+        card.style.display = show ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
