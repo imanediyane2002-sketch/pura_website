@@ -1,16 +1,14 @@
 // ===== PURA — Main Script =====
 
-// Navbar scroll effect
+// Navbar scroll
 const navbar = document.querySelector('.navbar');
 if (navbar) {
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
 }
 
 // Mobile nav toggle
 const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
+const navLinks  = document.querySelector('.nav-links');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
@@ -27,16 +25,21 @@ if (navToggle && navLinks) {
       document.body.style.overflow = '';
     }
   });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      document.body.style.overflow = '';
-    });
-  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    document.body.style.overflow = '';
+  }));
 }
+
+// Active nav link
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(a => {
+  const href = a.getAttribute('href');
+  if (href === currentPage || (currentPage === '' && href === 'index.html')) a.classList.add('active');
+});
 
 // Scroll reveal
 const revealObserver = new IntersectionObserver((entries) => {
@@ -49,13 +52,23 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+// Stagger grid items
+document.querySelectorAll('.features-grid .feature-card, .products-grid .product-card, .testimonials-grid .testimonial-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+  if (!el.classList.contains('reveal')) { el.classList.add('reveal'); revealObserver.observe(el); }
+});
+document.querySelectorAll('.result-card, .cert-card, .value-item, .ai-step').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+  if (!el.classList.contains('reveal')) { el.classList.add('reveal'); revealObserver.observe(el); }
+});
+
 // Animated counters
 function animateCounter(el) {
   const raw = el.dataset.target;
   const isFloat = raw.includes('.');
   const target = parseFloat(raw);
   const suffix = el.dataset.suffix || '';
-  const duration = 1600;
+  const duration = 1800;
   const start = performance.now();
   function update(now) {
     const progress = Math.min((now - start) / duration, 1);
@@ -68,15 +81,12 @@ function animateCounter(el) {
 }
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
+    if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-// Toast notification
+// Toast
 function showToast(msg) {
   let toast = document.querySelector('.toast');
   if (!toast) {
@@ -91,69 +101,17 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Add to cart buttons
+// Add to cart
 document.querySelectorAll('.add-btn, .add-to-cart, .modal-add').forEach(btn => {
   btn.addEventListener('click', () => showToast('✓ Produit ajouté au panier !'));
 });
 
-// Active nav link
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a').forEach(a => {
-  const href = a.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-    a.classList.add('active');
-  }
-});
-
-// Skin quiz logic
-const quizSteps = document.querySelectorAll('.quiz-step');
-const progressDots = document.querySelectorAll('.progress-dot');
-let currentStep = 0;
-const quizAnswers = {};
-
-function goToStep(n) {
-  quizSteps.forEach((s, i) => s.classList.toggle('active', i === n));
-  progressDots.forEach((d, i) => {
-    d.classList.toggle('active', i === n);
-    d.classList.toggle('done', i < n);
-  });
-  currentStep = n;
-}
-
-document.querySelectorAll('.quiz-option').forEach(opt => {
-  opt.addEventListener('click', function () {
-    const step = this.closest('.quiz-step');
-    step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-    this.classList.add('selected');
-    quizAnswers[currentStep] = this.textContent.trim();
-    setTimeout(() => {
-      if (currentStep < quizSteps.length - 2) {
-        goToStep(currentStep + 1);
-      } else {
-        showQuizResult();
-      }
-    }, 350);
-  });
-});
-
-function showQuizResult() {
-  const resultStep = document.querySelector('.quiz-result');
-  if (resultStep) {
-    quizSteps.forEach(s => s.classList.remove('active'));
-    resultStep.classList.add('active');
-    progressDots.forEach(d => d.classList.add('done'));
-  }
-}
-
-// Newsletter forms
+// Newsletter
 document.querySelectorAll('.newsletter-form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const input = form.querySelector('input');
-    if (input && input.value.trim()) {
-      showToast('✓ Merci de votre inscription !');
-      input.value = '';
-    }
+    if (input && input.value.trim()) { showToast('✓ Merci de votre inscription !'); input.value = ''; }
   });
 });
 
@@ -200,7 +158,6 @@ const productData = {
 };
 
 const modalOverlay = document.getElementById('productModal');
-
 function openModal(key) {
   const d = productData[key];
   if (!d || !modalOverlay) return;
@@ -216,19 +173,13 @@ function openModal(key) {
   modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeModal() {
-  if (modalOverlay) {
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if (modalOverlay) { modalOverlay.classList.remove('open'); document.body.style.overflow = ''; }
 }
-
 if (modalOverlay) {
   modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 }
-
 document.querySelectorAll('.quick-view-btn').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
@@ -237,78 +188,78 @@ document.querySelectorAll('.quick-view-btn').forEach(btn => {
   });
 });
 
-// Stagger animation for grid items
-document.querySelectorAll('.features-grid .feature-card, .products-grid .product-card, .testimonials-grid .testimonial-card').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.08}s`;
-  if (!el.classList.contains('reveal')) {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  }
-});
-
-// ===== 3D LUXURY UPGRADE =====
-
-// Product card 3D tilt on mouse move
+// 3D card tilt on mouse move
 document.querySelectorAll('.product-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-    card.style.transform = `perspective(900px) rotateX(${-dy * 6}deg) rotateY(${dx * 6}deg) translateY(-10px)`;
+    const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    card.style.transform = `perspective(900px) rotateX(${-dy * 5}deg) rotateY(${dx * 5}deg) translateY(-10px)`;
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-// Feature card subtle tilt
+// Feature card micro-tilt
 document.querySelectorAll('.feature-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
     const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    card.style.transform = `perspective(600px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg) translateY(-6px)`;
+    card.style.transform = `perspective(600px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg) translateY(-4px)`;
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-// Parallax on scroll for hero
+// Hero scroll parallax
 const heroSection = document.querySelector('.hero');
 if (heroSection) {
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     const content = heroSection.querySelector('.hero-content');
-    const visual = heroSection.querySelector('.hero-visual');
-    if (content) content.style.transform = `translateY(${y * 0.12}px)`;
-    if (visual) visual.style.transform = `translateY(${y * 0.06}px)`;
+    const visual  = heroSection.querySelector('.hero-visual');
+    if (content) content.style.transform = `translateY(${y * 0.1}px)`;
+    if (visual)  visual.style.transform  = `translateY(${y * 0.05}px)`;
   }, { passive: true });
 }
 
-// Stagger reveal delay for result cards and cert cards
-document.querySelectorAll('.result-card, .cert-card, .value-item, .ai-step').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.12}s`;
-  if (!el.classList.contains('reveal')) {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  }
-});
-
-// Cursor glow effect (desktop only)
-if (window.matchMedia('(hover: hover)').matches) {
-  const glow = document.createElement('div');
-  glow.style.cssText = `
-    position: fixed; width: 300px; height: 300px; pointer-events: none; z-index: 9999;
-    background: radial-gradient(circle, rgba(46,139,87,0.07) 0%, transparent 70%);
-    border-radius: 50%; transform: translate(-50%, -50%); transition: opacity 0.3s;
-    top: 0; left: 0;
-  `;
+// Cursor glow (desktop)
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const glow = Object.assign(document.createElement('div'), { style: `
+    position:fixed;width:320px;height:320px;pointer-events:none;z-index:9999;
+    background:radial-gradient(circle,rgba(46,139,87,0.06) 0%,transparent 70%);
+    border-radius:50%;transform:translate(-50%,-50%);
+    transition:opacity 0.3s;top:0;left:0;` });
   document.body.appendChild(glow);
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+  document.addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+}
+
+// Skin quiz logic
+const quizSteps = document.querySelectorAll('.quiz-step');
+const progressDots = document.querySelectorAll('.progress-dot');
+let currentStep = 0;
+const quizAnswers = {};
+function goToStep(n) {
+  quizSteps.forEach((s, i) => s.classList.toggle('active', i === n));
+  progressDots.forEach((d, i) => { d.classList.toggle('active', i === n); d.classList.toggle('done', i < n); });
+  currentStep = n;
+}
+document.querySelectorAll('.quiz-option').forEach(opt => {
+  opt.addEventListener('click', function () {
+    const step = this.closest('.quiz-step');
+    step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+    quizAnswers[currentStep] = this.textContent.trim();
+    setTimeout(() => {
+      if (currentStep < quizSteps.length - 2) goToStep(currentStep + 1);
+      else showQuizResult();
+    }, 350);
   });
+});
+function showQuizResult() {
+  const resultStep = document.querySelector('.quiz-result');
+  if (resultStep) {
+    quizSteps.forEach(s => s.classList.remove('active'));
+    resultStep.classList.add('active');
+    progressDots.forEach(d => d.classList.add('done'));
+  }
 }
