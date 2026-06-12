@@ -13,29 +13,32 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.toggle('open');
     navToggle.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
     const spans = navToggle.querySelectorAll('span');
-    if (navLinks.classList.contains('open')) {
+    if (isOpen) {
       spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
       spans[1].style.opacity = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+      document.body.style.overflow = 'hidden';
     } else {
       spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      document.body.style.overflow = '';
     }
   });
-  // Close on link click
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navLinks.classList.remove('open');
       navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      document.body.style.overflow = '';
     });
   });
 }
 
 // Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -43,8 +46,35 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
-revealEls.forEach(el => revealObserver.observe(el));
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Animated counters
+function animateCounter(el) {
+  const raw = el.dataset.target;
+  const isFloat = raw.includes('.');
+  const target = parseFloat(raw);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const start = performance.now();
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const val = target * eased;
+    el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
 // Toast notification
 function showToast(msg) {
@@ -52,6 +82,8 @@ function showToast(msg) {
   if (!toast) {
     toast = document.createElement('div');
     toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
     document.body.appendChild(toast);
   }
   toast.textContent = msg;
@@ -60,7 +92,7 @@ function showToast(msg) {
 }
 
 // Add to cart buttons
-document.querySelectorAll('.add-btn, .add-to-cart').forEach(btn => {
+document.querySelectorAll('.add-btn, .add-to-cart, .modal-add').forEach(btn => {
   btn.addEventListener('click', () => showToast('✓ Produit ajouté au panier !'));
 });
 
@@ -95,7 +127,7 @@ document.querySelectorAll('.quiz-option').forEach(opt => {
     this.classList.add('selected');
     quizAnswers[currentStep] = this.textContent.trim();
     setTimeout(() => {
-      if (currentStep < quizSteps.length - 1) {
+      if (currentStep < quizSteps.length - 2) {
         goToStep(currentStep + 1);
       } else {
         showQuizResult();
@@ -113,18 +145,17 @@ function showQuizResult() {
   }
 }
 
-// Newsletter form
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', e => {
+// Newsletter forms
+document.querySelectorAll('.newsletter-form').forEach(form => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    const input = newsletterForm.querySelector('input');
+    const input = form.querySelector('input');
     if (input && input.value.trim()) {
       showToast('✓ Merci de votre inscription !');
       input.value = '';
     }
   });
-}
+});
 
 // Contact form
 const contactForm = document.querySelector('.contact-form');
@@ -136,9 +167,81 @@ if (contactForm) {
   });
 }
 
+// Product modal data
+const productData = {
+  serum: {
+    name: 'Sérum Éclat Vitamine C',
+    desc: "Illumine le teint, réduit les taches pigmentaires et stimule la synthèse de collagène naturel. Résultats visibles dès 2 semaines d'utilisation régulière.",
+    price: '280 MAD', volume: '30ml', rating: '★★★★★', reviews: '127 avis',
+    tags: ['Vitamine C stabilisée', 'Acide hyaluronique', 'Romarin bio', 'Niacinamide'],
+    bg: 'linear-gradient(135deg, #e8f5ee, #d4edd8)'
+  },
+  booster: {
+    name: 'Booster Collagène',
+    desc: 'Redensifie et raffermit la peau en profondeur. Action anti-âge visible dès 4 semaines pour une peau rebondie et revitalisée.',
+    price: '350 MAD', volume: '30ml', rating: '★★★★★', reviews: '89 avis',
+    tags: ["Peptides végétaux", "Huile d'argan bio", 'Grenade', 'Rétinol végétal'],
+    bg: 'linear-gradient(135deg, #f5f0e8, #ede4d4)'
+  },
+  masque: {
+    name: 'Masque Hydratant Intense',
+    desc: "Réservoir d'hydratation pour peau sèche ou déshydratée. Application 2×/semaine pour une peau repulpée et confortable toute la journée.",
+    price: '220 MAD', volume: '75ml', rating: '★★★★★', reviews: '203 avis',
+    tags: ['Aloe vera bio', 'Acide hyaluronique 3D', "Fleur d'oranger", 'Beurre de karité'],
+    bg: 'linear-gradient(135deg, #e8eef5, #d4dded)'
+  },
+  huile: {
+    name: 'Huile Précieuse Nuit',
+    desc: 'Récupération nocturne intensive. Un mélange synergique de 15 huiles précieuses pour une régénération cellulaire maximale pendant le sommeil.',
+    price: '320 MAD', volume: '30ml', rating: '★★★★★', reviews: '64 avis',
+    tags: ['Rose musquée', 'Jojoba bio', 'Nigelle marocaine', 'Bakuchiol'],
+    bg: 'linear-gradient(135deg, #2a2016, #3d3020)'
+  }
+};
+
+const modalOverlay = document.getElementById('productModal');
+
+function openModal(key) {
+  const d = productData[key];
+  if (!d || !modalOverlay) return;
+  const vis = document.getElementById('modalVisual');
+  if (vis) vis.style.background = d.bg;
+  modalOverlay.querySelector('.modal-product-name').textContent = d.name;
+  modalOverlay.querySelector('.modal-product-desc').textContent = d.desc;
+  modalOverlay.querySelector('.modal-price-val').textContent = d.price;
+  modalOverlay.querySelector('.modal-price-vol').textContent = '/ ' + d.volume;
+  modalOverlay.querySelector('.modal-stars-val').textContent = d.rating;
+  modalOverlay.querySelector('.modal-reviews').textContent = d.reviews;
+  modalOverlay.querySelector('.modal-tags').innerHTML = d.tags.map(t => `<span class="ing-tag">${t}</span>`).join('');
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  if (modalOverlay) {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+}
+
+document.querySelectorAll('.quick-view-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const card = btn.closest('[data-product]');
+    if (card) openModal(card.dataset.product);
+  });
+});
+
 // Stagger animation for grid items
 document.querySelectorAll('.features-grid .feature-card, .products-grid .product-card, .testimonials-grid .testimonial-card').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.08}s`;
-  el.classList.add('reveal');
-  revealObserver.observe(el);
+  if (!el.classList.contains('reveal')) {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  }
 });

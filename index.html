@@ -3,18 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PURA — La première marque de soins naturels certifiés avec diagnostic IA personnalisé. Découvrez votre routine beauté sur mesure." />
-  <title>PURA — Soins Naturels & Diagnostic IA | pura.ma</title>
+  <meta name="description" content="PURA — La première marque marocaine de soins naturels certifiés avec diagnostic IA personnalisé. Votre peau, votre routine, votre PURA." />
+  <title>PURA — Soins Naturels Certifiés & Diagnostic IA | pura.ma</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PURA — Soins Naturels Certifiés & Diagnostic IA" />
+  <meta property="og:description" content="La première marque marocaine de skincare naturel certifié, propulsé par l'intelligence artificielle. Diagnostic peau gratuit en 60 secondes." />
+  <meta property="og:url" content="https://pura.ma" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pura.ma/og-image.jpg" />
+  <meta property="og:locale" content="fr_MA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PURA — Soins Naturels Certifiés & Diagnostic IA" />
+  <meta name="twitter:description" content="La première marque marocaine de skincare naturel certifié, propulsé par l'intelligence artificielle." />
+
+  <link rel="canonical" href="https://pura.ma" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232E8B57'/><text y='.9em' font-size='70' x='18' font-family='serif' fill='white'>P</text></svg>" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PURA",
+    "url": "https://pura.ma",
+    "logo": "https://pura.ma/logo.png",
+    "description": "La première marque marocaine de soins naturels certifiés avec diagnostic IA personnalisé.",
+    "sameAs": [
+      "https://instagram.com/puraskin.ai",
+      "https://facebook.com/PURASkincare"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" aria-label="Navigation principale">
     <div class="container">
-      <a href="index.html" class="nav-logo" aria-label="PURA Accueil">
-        <div class="nav-logo-mark">P</div>
+      <a href="index.html" class="nav-logo" aria-label="PURA — Accueil">
+        <div class="nav-logo-mark" aria-hidden="true">P</div>
         <span class="nav-logo-text">PURA</span>
       </a>
       <ul class="nav-links" role="menubar">
@@ -23,87 +50,91 @@
         <li role="none"><a href="skin-ai.html" role="menuitem">Skin AI</a></li>
         <li role="none"><a href="about.html" role="menuitem">À propos</a></li>
         <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-        <li role="none" class="nav-cta">
-          <a href="skin-ai.html" class="btn btn-primary" role="menuitem">
-            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-            Diagnostic Gratuit
-          </a>
-        </li>
+        <li class="nav-cta" role="none"><a href="skin-ai.html" class="btn btn-primary" role="menuitem">Diagnostic Gratuit</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Menu mobile" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" aria-label="Présentation PURA">
+  <!-- Trust Bar -->
+  <div class="trust-bar" aria-label="Certifications et garanties">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item"><span>🌿</span> Certifié Ecocert</div>
+        <div class="trust-item"><span>🐰</span> Cruelty Free</div>
+        <div class="trust-item"><span>✡️</span> Certifié Halal</div>
+        <div class="trust-item"><span>🤖</span> IA Diagnostique</div>
+        <div class="trust-item"><span>🇲🇦</span> Made in Morocco</div>
+        <div class="trust-item"><span>🌱</span> 100% Naturel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Accueil PURA">
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z" clip-rule="evenodd"/></svg>
-            Certifié Ecocert · Halal · Cruelty Free
+          <div class="hero-badge" role="note">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0l2.09 4.94L16 5.88l-4 3.9.94 5.5L8 12.94l-4.94 2.34.94-5.5-4-3.9 5.91-.94z"/></svg>
+            Première marque marocaine skincare + IA
           </div>
           <h1 class="hero-title">
-            Votre peau,<br>
-            <span class="highlight">votre routine,</span>
-            votre <span class="gold-text">PURA</span>
+            La beauté naturelle,<br>
+            <em class="highlight">personnalisée par l'IA</em>
           </h1>
-          <p class="hero-subtitle">
-            La première marque marocaine de soins naturels certifiés, propulsée par l'intelligence artificielle pour une routine beauté 100 % personnalisée.
-          </p>
+          <p class="hero-subtitle">Votre peau mérite des soins certifiés et une routine conçue spécialement pour elle. PURA combine l'excellence des ingrédients naturels marocains et la précision de l'intelligence artificielle.</p>
+
           <div class="hero-actions">
             <a href="skin-ai.html" class="btn btn-primary">
-              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-              Diagnostic IA Gratuit
+              <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+              Lancer mon diagnostic gratuit
             </a>
-            <a href="produits.html" class="btn btn-outline">Découvrir les produits</a>
+            <a href="produits.html" class="btn btn-outline">Voir la gamme</a>
           </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-num">100%</span>
-              <span class="stat-label">Naturels & certifiés</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">IA</span>
-              <span class="stat-label">Diagnostic précis</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">0</span>
-              <span class="stat-label">Greenwashing</span>
-            </div>
+
+          <div class="hero-divider"><span>Certifications</span></div>
+
+          <div class="certs-strip" aria-label="Certifications">
+            <div class="cert-pill">🌿 Ecocert Cosmos</div>
+            <div class="cert-pill">🐰 Cruelty Free</div>
+            <div class="cert-pill">✡️ Halal Certified</div>
           </div>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-mockup">
-            <div class="phone-frame">
+            <div class="floating-card fc-1">
+              <div class="fc-icon green">🤖</div>
+              <div>
+                <div class="fc-text-label">Score Peau IA</div>
+                <div class="fc-text-value">84 / 100</div>
+              </div>
+            </div>
+
+            <div class="phone-frame" role="img" aria-label="Interface PURA Skin AI">
               <div class="phone-screen">
                 <div class="phone-header">
                   <span class="phone-logo">PURA</span>
                   <span class="phone-badge">Skin AI</span>
                 </div>
                 <div class="phone-scan-area">
-                  <div class="scan-corners">
+                  <div class="scan-corners" aria-hidden="true">
                     <div class="scan-corner tl"></div>
                     <div class="scan-corner tr"></div>
                     <div class="scan-corner bl"></div>
                     <div class="scan-corner br"></div>
                   </div>
                   <div class="scan-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/>
-                      <path d="M7 20.662V19a2 2 0 012-2h6a2 2 0 012 2v1.662"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   </div>
-                  <span class="phone-scan-text">Analyse en cours…<br>Positionnez votre visage</span>
-                  <div class="scan-line"></div>
+                  <p class="phone-scan-text">Analyse faciale IA<br>47 marqueurs cutanés</p>
+                  <div class="scan-line" aria-hidden="true"></div>
                 </div>
                 <div class="phone-result">
-                  <div class="result-label">Score de santé peau</div>
-                  <div class="result-score">87<span style="font-size:1rem;color:rgba(255,255,255,0.5)">/100</span></div>
-                  <div class="result-sub">Peau mixte · Hydratation normale</div>
+                  <div class="result-label">Diagnostic PURA</div>
+                  <div class="result-score">84<span style="font-size:1rem;color:rgba(255,255,255,0.4)">/100</span></div>
+                  <div class="result-sub">Peau mixte · Hydratation moyenne</div>
                 </div>
                 <div class="phone-products">
                   <div class="mini-product">
@@ -111,26 +142,18 @@
                     <div class="mini-product-price">280 MAD</div>
                   </div>
                   <div class="mini-product">
-                    <div class="mini-product-name">Huile Précieuse Nuit</div>
+                    <div class="mini-product-name">Huile Nuit</div>
                     <div class="mini-product-price">320 MAD</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="floating-card fc-1">
-              <div class="fc-icon green">🌿</div>
-              <div>
-                <div class="fc-text-label">Ingrédients</div>
-                <div class="fc-text-value">100% naturels</div>
-              </div>
-            </div>
-
             <div class="floating-card fc-2">
               <div class="fc-icon gold">✨</div>
               <div>
-                <div class="fc-text-label">Personnalisation</div>
-                <div class="fc-text-value">IA avancée</div>
+                <div class="fc-text-label">Routine générée</div>
+                <div class="fc-text-value">En 60 secondes</div>
               </div>
             </div>
           </div>
@@ -139,140 +162,136 @@
     </div>
   </section>
 
-  <!-- ===== FEATURES ===== -->
-  <section class="features section-pad" aria-label="Nos atouts">
+  <!-- Social Proof Numbers -->
+  <section class="social-proof-bar" aria-label="Chiffres clés PURA">
     <div class="container">
-      <div class="features-header reveal">
-        <span class="section-label">Pourquoi PURA</span>
-        <h2>L'alliance de la nature<br>et de l'intelligence artificielle</h2>
-        <p>PURA occupe un espace blanc stratégique : aucune marque ne combine naturalité certifiée, diagnostic IA personnalisé et engagement durable au même niveau d'excellence.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon">🤖</div>
-          <h3>PURA Skin AI</h3>
-          <p>Notre application analyse votre peau en temps réel via l'IA et génère une routine personnalisée matin/soir. Score de santé peau sur 100, suivi sur 90 jours.</p>
+      <div class="sp-grid">
+        <div class="sp-item reveal">
+          <span class="sp-num" data-target="500" data-suffix="+">0+</span>
+          <span class="sp-label">Bêta-testeurs satisfaits</span>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🌿</div>
-          <h3>100% Naturel & Certifié</h3>
-          <p>Toutes nos formulations sont certifiées Ecocert. Zéro parabène, zéro sulfate, zéro perturbateur endocrinien. La liste INCI intégrale disponible via QR code.</p>
+        <div class="sp-item reveal">
+          <span class="sp-num" data-target="47" data-suffix="">0</span>
+          <span class="sp-label">Marqueurs cutanés analysés</span>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">♻️</div>
-          <h3>Packaging Durable</h3>
-          <p>Flacons en verre ambré recyclé, bouchons en bambou certifié FSC, emballages secondaires en carton recyclé. Chaque détail reflète nos valeurs environnementales.</p>
+        <div class="sp-item reveal">
+          <span class="sp-num" data-target="100" data-suffix="%">0%</span>
+          <span class="sp-label">Ingrédients naturels certifiés</span>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🔬</div>
-          <h3>Transparence Totale</h3>
-          <p>Nous publions nos tests d'efficacité et l'origine de chaque ingrédient. La confiance se construit sur la preuve, jamais sur les promesses.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">👤</div>
-          <h3>Personnalisation Extrême</h3>
-          <p>Fini les recommandations génériques. PURA Skin AI adapte chaque suggestion à votre type de peau, votre environnement et votre mode de vie.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">🏆</div>
-          <h3>Premium Accessible</h3>
-          <p>Qualité digne des grandes marques de luxe, à des prix accessibles entre 150 et 500 MAD. Le premium ne devrait pas être un privilège.</p>
+        <div class="sp-item reveal">
+          <span class="sp-num" data-target="4.9" data-suffix="★">0★</span>
+          <span class="sp-label">Note moyenne clients</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== AI SECTION ===== -->
+  <!-- Features -->
+  <section class="features section-pad" aria-label="Nos atouts">
+    <div class="container">
+      <div class="features-header reveal">
+        <span class="section-label">Pourquoi PURA ?</span>
+        <h2>La triple promesse<br>d'une nouvelle ère du skincare</h2>
+        <p>PURA est née de la conviction que naturalité certifiée, technologie IA et transparence totale ne sont pas incompatibles — elles sont complémentaires.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">🌱</div>
+          <h3>100% Naturel & Certifié</h3>
+          <p>Chaque ingrédient est d'origine naturelle, certifié Ecocert. Liste INCI complète accessible via QR code sur chaque emballage. Zéro compromis.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">🤖</div>
+          <h3>IA Diagnostique Cutanée</h3>
+          <p>Notre algorithme analyse 47 marqueurs cutanés en 60 secondes. Score de santé peau, type identifié, routine personnalisée — précision médicale.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">🔍</div>
+          <h3>Transparence Radicale</h3>
+          <p>Tests d'efficacité publiés, traçabilité totale des ingrédients, zéro greenwashing. Nous prouvons ce que nous promettons, chaque fois.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">🇲🇦</div>
+          <h3>Trésors Botaniques Marocains</h3>
+          <p>Argan, nigelle, fleur d'oranger, rose du Maroc — les actifs les plus précieux du royaume, formulés avec la rigueur de la cosmétique moderne.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">🌍</div>
+          <h3>Engagement Durable</h3>
+          <p>Packaging 100% recyclé ou biosourcé, empreinte carbone maîtrisée, sourcing éthique certifié. La beauté doit respecter la planète.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">📈</div>
+          <h3>Suivi Évolutif 90 Jours</h3>
+          <p>Mesurez la progression de votre peau sur 30, 60 et 90 jours. Ajustez votre routine en temps réel grâce aux recommandations de notre IA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Section -->
   <section class="ai-section section-pad" aria-label="PURA Skin AI">
     <div class="container">
       <div class="ai-inner">
         <div class="ai-content">
-          <span class="section-label" style="color:var(--sage-light)">
-            <span style="background:var(--sage-light);display:block;width:24px;height:1px"></span>
-            PURA Skin AI
-          </span>
-          <h2 style="color:var(--white)">Votre diagnostic de peau<br><em style="color:var(--gold)">en 60 secondes</em></h2>
-          <p style="color:rgba(255,255,255,0.65);margin:16px 0 0;font-size:1rem;line-height:1.7">
-            Notre technologie de vision par ordinateur analyse votre peau avec une précision médicale. En une minute, obtenez un bilan complet et une routine personnalisée.
-          </p>
+          <span class="section-label" style="color:var(--sage-light)">Intelligence Artificielle</span>
+          <h2 style="color:var(--white)">PURA Skin AI —<br><em style="color:var(--gold)">votre dermatologue digital</em></h2>
+          <p style="color:rgba(255,255,255,0.65);margin:20px 0 40px;font-size:1.05rem;line-height:1.7">Notre technologie de vision par ordinateur détecte ce que l'œil ne voit pas. En 60 secondes, obtenez une analyse cliniquement précise de votre peau et une routine 100% personnalisée.</p>
           <div class="ai-steps">
             <div class="ai-step reveal">
               <div class="step-num">1</div>
               <div class="step-content">
-                <h4>Scan facial IA</h4>
-                <p>Prenez une photo de votre visage sous bonne lumière. Notre IA analyse instantanément pores, rides, hydratation et imperfections.</p>
+                <h4>Scan Facial Intelligent</h4>
+                <p>Prenez une selfie sous lumière naturelle. L'IA analyse instantanément 47 marqueurs cutanés : pores, rides, hydratation, taches, rougeurs.</p>
               </div>
             </div>
             <div class="ai-step reveal">
               <div class="step-num">2</div>
               <div class="step-content">
-                <h4>Diagnostic précis</h4>
-                <p>Recevez votre score de santé peau sur 100, avec identification de votre type et de vos problématiques spécifiques.</p>
+                <h4>Score de Santé Peau</h4>
+                <p>Recevez votre score /100, l'identification précise de votre type de peau et un classement de vos problématiques prioritaires.</p>
               </div>
             </div>
             <div class="ai-step reveal">
               <div class="step-num">3</div>
               <div class="step-content">
-                <h4>Routine sur mesure</h4>
-                <p>Une routine matin/soir personnalisée avec les produits PURA les plus adaptés à votre profil unique.</p>
-              </div>
-            </div>
-            <div class="ai-step reveal">
-              <div class="step-num">4</div>
-              <div class="step-content">
-                <h4>Suivi évolutif</h4>
-                <p>Suivez l'évolution de votre peau sur 30, 60 et 90 jours. Ajustements automatiques de votre routine.</p>
+                <h4>Routine Personnalisée PURA</h4>
+                <p>Recommandations de produits adaptées à votre profil unique, avec protocole matin/soir et suivi d'évolution sur 90 jours.</p>
               </div>
             </div>
           </div>
-          <div style="margin-top:36px">
-            <a href="skin-ai.html" class="btn btn-gold">
-              Essayer PURA Skin AI gratuitement
-              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-            </a>
-          </div>
+          <a href="skin-ai.html" class="btn btn-gold" style="margin-top:36px">Essayer PURA Skin AI →</a>
         </div>
-
-        <div class="ai-visual" aria-hidden="true">
-          <div class="ai-dashboard reveal">
+        <div class="ai-visual">
+          <div class="ai-dashboard">
             <div class="dash-header">
-              <span class="dash-title">Skin AI Report</span>
-              <span class="dash-badge">● Live</span>
+              <span class="dash-title">PURA Skin AI</span>
+              <span class="dash-badge">● En ligne</span>
             </div>
             <div class="skin-score-circle">
-              <div class="score-ring">
-                <svg viewBox="0 0 120 120">
+              <div class="score-ring" role="img" aria-label="Score peau 84 sur 100">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
                   <circle class="score-bg" cx="60" cy="60" r="50"/>
                   <circle class="score-fill" cx="60" cy="60" r="50"/>
                 </svg>
                 <div class="score-text">
-                  <span class="score-num">87</span>
-                  <span class="score-sub">/ 100</span>
+                  <span class="score-num">84</span>
+                  <span class="score-sub">/100</span>
                 </div>
               </div>
             </div>
             <div class="skin-tags">
               <span class="skin-tag active">Peau mixte</span>
-              <span class="skin-tag active">T-zone grasse</span>
-              <span class="skin-tag">Rides fines</span>
-              <span class="skin-tag active">Hydratation OK</span>
-              <span class="skin-tag">Pores visibles</span>
+              <span class="skin-tag active">Hydratation ↑</span>
+              <span class="skin-tag">Zone T</span>
+              <span class="skin-tag">Éclat ↗</span>
             </div>
             <div class="routine-reco">
               <div class="reco-label">Routine recommandée</div>
               <div class="reco-items">
-                <div class="reco-item">
-                  <span class="reco-name">☀️ Sérum Éclat Vitamine C</span>
-                  <span class="reco-time">Matin</span>
-                </div>
-                <div class="reco-item">
-                  <span class="reco-name">🌙 Huile Précieuse Nuit</span>
-                  <span class="reco-time">Soir</span>
-                </div>
-                <div class="reco-item">
-                  <span class="reco-name">💧 Masque Hydratant</span>
-                  <span class="reco-time">2×/sem</span>
-                </div>
+                <div class="reco-item"><span class="reco-name">☀️ Sérum Vitamine C</span><span class="reco-time">Matin</span></div>
+                <div class="reco-item"><span class="reco-name">🌙 Huile Précieuse Nuit</span><span class="reco-time">Soir</span></div>
+                <div class="reco-item"><span class="reco-name">💧 Masque Hydratant</span><span class="reco-time">2×/sem</span></div>
               </div>
             </div>
           </div>
@@ -281,132 +300,199 @@
     </div>
   </section>
 
-  <!-- ===== PRODUCTS ===== -->
-  <section class="products-section section-pad" aria-label="Nos produits vedettes">
+  <!-- Products -->
+  <section class="products-section section-pad" aria-label="Nos produits phares">
     <div class="container">
       <div class="products-header reveal">
-        <span class="section-label">La gamme PURA</span>
-        <h2>Des formulations<br>d'exception</h2>
-        <p>Chaque produit PURA est formulé avec des ingrédients 100% naturels certifiés Ecocert, conditionné en verre ambré recyclé avec bouchon en bambou.</p>
+        <span class="section-label">La Gamme</span>
+        <h2>4 soins iconiques,<br>une seule exigence : l'excellence</h2>
+        <p>Chaque formule PURA est certifiée Ecocert, testée cliniquement et recommandée selon votre profil cutané unique.</p>
       </div>
       <div class="products-grid">
-        <div class="product-card reveal">
+        <div class="product-card" data-product="serum">
           <div class="product-image bg-1">
             <div class="product-visual amber">
               <div class="pv-cap"></div>
-              <span class="pv-label">SÉRUM<br>VITAMINE C</span>
+              <span class="pv-label">SÉRUM<br>VIT C</span>
             </div>
             <span class="product-badge">Bestseller</span>
+            <button class="quick-view-btn" aria-label="Aperçu rapide Sérum Vitamine C">Aperçu rapide</button>
           </div>
           <div class="product-info">
-            <h4 class="product-name">Sérum Éclat Vitamine C</h4>
-            <p class="product-desc">Illumine le teint, réduit les taches et booste la synthèse de collagène. Ingrédients clés : Vitamine C stabilisée, Acide hyaluronique, Extrait de romarin.</p>
+            <h3 class="product-name">Sérum Éclat Vitamine C</h3>
+            <p class="product-desc">Illumine, unifie, protège. Résultats visibles dès 2 semaines.</p>
             <div class="product-footer">
               <div class="product-price">280 MAD <span>/ 30ml</span></div>
-              <button class="add-btn" aria-label="Ajouter au panier">+</button>
+              <button class="add-btn" aria-label="Ajouter au panier">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3z"/></svg>
+              </button>
             </div>
           </div>
         </div>
-
-        <div class="product-card reveal">
+        <div class="product-card" data-product="booster">
           <div class="product-image bg-2">
             <div class="product-visual gold-dark">
               <div class="pv-cap"></div>
-              <span class="pv-label">BOOSTER<br>COLLAGÈNE</span>
+              <span class="pv-label">BOOSTER<br>COLL.</span>
             </div>
             <span class="product-badge">Nouveau</span>
+            <button class="quick-view-btn" aria-label="Aperçu rapide Booster Collagène">Aperçu rapide</button>
           </div>
           <div class="product-info">
-            <h4 class="product-name">Booster Collagène</h4>
-            <p class="product-desc">Redensifie et raffermit la peau en profondeur. Formule exclusive à base de peptides végétaux, huile d'argan bio et extrait de grenade.</p>
+            <h3 class="product-name">Booster Collagène</h3>
+            <p class="product-desc">Redensifie et raffermit. Action anti-âge en 4 semaines.</p>
             <div class="product-footer">
               <div class="product-price">350 MAD <span>/ 30ml</span></div>
-              <button class="add-btn" aria-label="Ajouter au panier">+</button>
+              <button class="add-btn" aria-label="Ajouter au panier">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3z"/></svg>
+              </button>
             </div>
           </div>
         </div>
-
-        <div class="product-card reveal">
+        <div class="product-card" data-product="masque">
           <div class="product-image bg-3">
-            <div class="product-visual deep-blue">
+            <div class="product-visual deep-blue" style="border-radius:12px">
               <div class="pv-cap"></div>
-              <span class="pv-label">MASQUE<br>HYDRATANT</span>
+              <span class="pv-label">MASQUE<br>INTENSE</span>
             </div>
             <span class="product-badge">Top-rated</span>
+            <button class="quick-view-btn" aria-label="Aperçu rapide Masque Hydratant">Aperçu rapide</button>
           </div>
           <div class="product-info">
-            <h4 class="product-name">Masque Hydratant Intense</h4>
-            <p class="product-desc">Réservoir d'hydratation pour peau sèche ou déshydratée. Aloe vera bio, acide hyaluronique 3 poids, fleur d'oranger du Maroc.</p>
+            <h3 class="product-name">Masque Hydratant Intense</h3>
+            <p class="product-desc">Hydratation 72h prouvée. Peau repulpée dès la première application.</p>
             <div class="product-footer">
               <div class="product-price">220 MAD <span>/ 75ml</span></div>
-              <button class="add-btn" aria-label="Ajouter au panier">+</button>
+              <button class="add-btn" aria-label="Ajouter au panier">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3z"/></svg>
+              </button>
             </div>
           </div>
         </div>
-
-        <div class="product-card reveal">
-          <div class="product-image" style="background:linear-gradient(135deg,#2a2016,#3d3020)">
+        <div class="product-card" data-product="huile">
+          <div class="product-image bg-4">
             <div class="product-visual night">
               <div class="pv-cap"></div>
-              <span class="pv-label">HUILE<br>PRÉCIEUSE<br>NUIT</span>
+              <span class="pv-label">HUILE<br>NUIT</span>
             </div>
             <span class="product-badge gold-badge">Premium</span>
+            <button class="quick-view-btn" aria-label="Aperçu rapide Huile Précieuse Nuit">Aperçu rapide</button>
           </div>
           <div class="product-info">
-            <h4 class="product-name">Huile Précieuse Nuit</h4>
-            <p class="product-desc">Récupération nocturne intensive. Mélange d'huiles précieuses : rose musquée, jojoba, nigelle bio — 15 ingrédients actifs.</p>
+            <h3 class="product-name">Huile Précieuse Nuit</h3>
+            <p class="product-desc">15 huiles précieuses pour une régénération nocturne maximale.</p>
             <div class="product-footer">
               <div class="product-price">320 MAD <span>/ 30ml</span></div>
-              <button class="add-btn" aria-label="Ajouter au panier">+</button>
+              <button class="add-btn" aria-label="Ajouter au panier">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3z"/></svg>
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="products-cta reveal">
-        <a href="produits.html" class="btn btn-outline">Voir toute la gamme</a>
+      <div class="products-cta">
+        <a href="produits.html" class="btn btn-outline">Voir toute la gamme →</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
+  <!-- Brand Slogan -->
+  <div class="brand-slogan" aria-label="Slogan PURA">
+    <div class="container">
+      <blockquote>
+        "Votre peau, votre routine, <em>votre PURA.</em>"
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- Before/After Results -->
+  <section class="results-section section-pad" aria-label="Résultats avant/après">
+    <div class="container">
+      <div class="features-header reveal">
+        <span class="section-label">Résultats Prouvés</span>
+        <h2>Des transformations réelles,<br>mesurées par l'IA</h2>
+        <p>Nos algorithmes suivent l'évolution de votre peau sur 30, 60 et 90 jours. Voici quelques résultats de notre communauté bêta.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card reveal">
+          <div class="result-visual">
+            <div class="result-before">AVANT</div>
+            <div class="result-after">APRÈS</div>
+            <div class="result-divider" aria-hidden="true"></div>
+          </div>
+          <div class="result-info">
+            <h4>Éclat & Unification</h4>
+            <p>Sérum Vitamine C — Salma, 28 ans</p>
+            <span class="result-week">✓ Résultats en 4 semaines</span>
+          </div>
+        </div>
+        <div class="result-card reveal">
+          <div class="result-visual">
+            <div class="result-before">AVANT</div>
+            <div class="result-after">APRÈS</div>
+            <div class="result-divider" aria-hidden="true"></div>
+          </div>
+          <div class="result-info">
+            <h4>Hydratation & Repulpement</h4>
+            <p>Masque Hydratant Intense — Nour, 32 ans</p>
+            <span class="result-week">✓ Résultats en 3 semaines</span>
+          </div>
+        </div>
+        <div class="result-card reveal">
+          <div class="result-visual">
+            <div class="result-before">AVANT</div>
+            <div class="result-after">APRÈS</div>
+            <div class="result-divider" aria-hidden="true"></div>
+          </div>
+          <div class="result-info">
+            <h4>Fermeté & Anti-âge</h4>
+            <p>Booster Collagène — Yasmine, 41 ans</p>
+            <span class="result-week">✓ Résultats en 6 semaines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
   <section class="testimonials section-pad" aria-label="Témoignages clients">
     <div class="container">
       <div class="testimonials-header reveal">
-        <span class="section-label">Ils parlent de PURA</span>
-        <h2>Ce que disent nos clients</h2>
-        <p>Des résultats prouvés, validés par notre communauté.</p>
+        <span class="section-label">Témoignages</span>
+        <h2>Ce que dit<br>notre communauté</h2>
+        <p>Des vraies clientes, de vrais résultats. Pas de filtre, pas de retouche.</p>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"J'en avais marre d'acheter des produits 'naturels' qui contenaient des tonnes de conservateurs. PURA m'a donné enfin de la vraie naturalité, prouvée. Le diagnostic IA a tout changé pour moi."</p>
+          <div class="stars" aria-label="5 étoiles">★★★★★</div>
+          <p class="testimonial-text">"Le diagnostic IA m'a vraiment bluffée — il a identifié exactement mes problèmes de peau que je n'arrivais pas à définir moi-même. Et le Sérum Vitamine C a transformé mon teint en 3 semaines !"</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-green">S</div>
+            <div class="author-avatar av-green" aria-hidden="true">S</div>
             <div>
-              <div class="author-name">Salma, 24 ans</div>
-              <div class="author-detail">Casablanca · Peau sensible</div>
+              <div class="author-name">Salma B.</div>
+              <div class="author-detail">Casablanca · Sérum Vitamine C</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Si la marque me dit exactement d'où vient chaque ingrédient, avec qui ils travaillent, comment c'est fabriqué... là, j'ai confiance. Et PURA fait exactement ça. La traçabilité est irréprochable."</p>
+          <div class="stars" aria-label="5 étoiles">★★★★★</div>
+          <p class="testimonial-text">"Je suis techno-curieux et sceptique. L'analyse des 47 marqueurs cutanés m'a convaincu. Ma peau est objectivement meilleure — l'IA me le confirme à chaque scan mensuel."</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-dark">N</div>
+            <div class="author-avatar av-gold" aria-hidden="true">Y</div>
             <div>
-              <div class="author-name">Nour, 31 ans</div>
-              <div class="author-detail">Rabat · Peau normale</div>
+              <div class="author-name">Yassir M.</div>
+              <div class="author-detail">Rabat · Booster Collagène</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"L'idée d'un diagnostic IA de ma peau m'attirait vraiment. Ça change enfin les recommandations génériques que je n'utilisais jamais. PURA Skin AI est bluffant de précision."</p>
+          <div class="stars" aria-label="5 étoiles">★★★★★</div>
+          <p class="testimonial-text">"Enfin une marque marocaine qui prend au sérieux la naturalité ET la technologie. Les certifications Ecocert et Halal, c'est indispensable pour moi. Je recommande à toutes mes amies."</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-gold">M</div>
+            <div class="author-avatar av-dark" aria-hidden="true">L</div>
             <div>
-              <div class="author-name">Mehdi, 27 ans</div>
-              <div class="author-detail">Marrakech · Peau grasse</div>
+              <div class="author-name">Leila K.</div>
+              <div class="author-detail">Marrakech · Masque Hydratant</div>
             </div>
           </div>
         </div>
@@ -414,110 +500,147 @@
     </div>
   </section>
 
-  <!-- ===== VALUES ===== -->
-  <section class="values-section section-pad" aria-label="Nos valeurs">
+  <!-- Instagram Section -->
+  <section class="instagram-section section-pad" aria-label="Notre communauté Instagram">
+    <div class="container">
+      <div class="ig-header">
+        <div class="ig-handle">
+          <div class="ig-avatar" aria-hidden="true">P</div>
+          <div>
+            <div class="ig-name">@puraskin.ai</div>
+            <div class="ig-sub">Rejoignez notre communauté skincare</div>
+          </div>
+        </div>
+        <a href="https://instagram.com/puraskin.ai" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Suivre PURA sur Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Suivre sur Instagram
+        </a>
+      </div>
+      <div class="ig-grid" aria-label="Galerie Instagram PURA">
+        <div class="ig-item">
+          <div class="ig-item-inner ig-1"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+          <span class="ig-item-label">Routine AM</span>
+        </div>
+        <div class="ig-item">
+          <div class="ig-item-inner ig-2"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+          <span class="ig-item-label">Ingrédients</span>
+        </div>
+        <div class="ig-item">
+          <div class="ig-item-inner ig-3"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <span class="ig-item-label">Résultats</span>
+        </div>
+        <div class="ig-item">
+          <div class="ig-item-inner ig-4"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <span class="ig-item-label">Diagnostic IA</span>
+        </div>
+        <div class="ig-item">
+          <div class="ig-item-inner ig-5"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <span class="ig-item-label">Ritual du soir</span>
+        </div>
+        <div class="ig-item">
+          <div class="ig-item-inner ig-6"></div>
+          <div class="ig-item-overlay"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
+          <span class="ig-item-label">@puraskin.ai</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values & Certifications -->
+  <section class="values-section section-pad" aria-label="Nos valeurs et certifications">
     <div class="container">
       <div class="values-inner">
         <div class="values-content">
-          <span class="section-label">Notre ADN</span>
-          <h2>Des valeurs portées<br>avec sincérité</h2>
-          <p>PURA n'est pas seulement une marque de cosmétiques. C'est un engagement : envers vous, envers la nature, envers une beauté authentique et responsable.</p>
+          <span class="section-label">Nos Engagements</span>
+          <h2>Pourquoi vous pouvez<br>nous faire confiance</h2>
+          <p>PURA ne fait pas de promesses en l'air. Chaque affirmation est prouvée par une certification indépendante, des tests cliniques publiés ou une traçabilité totale de nos ingrédients.</p>
           <div class="values-list">
             <div class="value-item reveal">
-              <div class="value-icon">🌱</div>
+              <span class="value-icon" aria-hidden="true">🌱</span>
               <div class="value-text">
-                <h4>Naturalité certifiée</h4>
-                <p>Certifications Ecocert, Halal et Cruelty Free. Chaque ingrédient est tracé de sa source à votre peau.</p>
+                <h4>Certifié Ecocert Cosmos Organic</h4>
+                <p>La certification la plus exigeante en cosmétique naturelle. 100% des ingrédients vérifiés par audit indépendant.</p>
               </div>
             </div>
             <div class="value-item reveal">
-              <div class="value-icon">🔍</div>
+              <span class="value-icon" aria-hidden="true">🔬</span>
               <div class="value-text">
-                <h4>Transparence radicale</h4>
-                <p>Liste INCI complète via QR code, tests d'efficacité publiés, formulations ouvertes. Aucun secret.</p>
+                <h4>Tests Cliniques Publiés</h4>
+                <p>Nos tests d'efficacité sont accessibles via QR code sur chaque emballage. Transparence totale sur les résultats.</p>
               </div>
             </div>
             <div class="value-item reveal">
-              <div class="value-icon">🌍</div>
+              <span class="value-icon" aria-hidden="true">🤖</span>
               <div class="value-text">
-                <h4>Impact environnemental</h4>
-                <p>Emballages recyclés ou biosourcés, empreinte carbone réduite, sourcing éthique local et international.</p>
-              </div>
-            </div>
-            <div class="value-item reveal">
-              <div class="value-icon">🤝</div>
-              <div class="value-text">
-                <h4>Inclusivité</h4>
-                <p>Pour toutes les peaux, tous les tons, tous les profils. La beauté naturelle n'a pas de critères exclusifs.</p>
+                <h4>IA Validée Cliniquement</h4>
+                <p>Notre algorithme de diagnostic cutané a été validé en collaboration avec des dermatologues et atteint 94% de précision.</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="values-visual reveal">
+        <div class="values-visual" aria-label="Certifications PURA">
           <div class="cert-card featured">
-            <div class="cert-icon">🌿</div>
-            <div class="cert-name">Certifié Ecocert</div>
-            <div class="cert-detail">Formulations 100% naturelles vérifiées</div>
+            <div class="cert-icon" aria-hidden="true">🌿</div>
+            <div class="cert-name">Ecocert Cosmos Organic</div>
+            <div class="cert-detail">La référence internationale du cosmétique naturel certifié</div>
           </div>
-          <div class="cert-card">
-            <div class="cert-icon">✡️</div>
-            <div class="cert-name">Halal Certified</div>
-            <div class="cert-detail">Ingrédients conformes</div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-icon">🐰</div>
+          <div class="cert-card reveal">
+            <div class="cert-icon" aria-hidden="true">🐰</div>
             <div class="cert-name">Cruelty Free</div>
-            <div class="cert-detail">Aucun test sur animaux</div>
+            <div class="cert-detail">Aucun test sur animaux, jamais.</div>
           </div>
-          <div class="cert-card">
-            <div class="cert-icon">♻️</div>
-            <div class="cert-name">FSC Packaging</div>
-            <div class="cert-detail">Bambou & verre recyclé</div>
+          <div class="cert-card reveal">
+            <div class="cert-icon" aria-hidden="true">✡️</div>
+            <div class="cert-name">Halal Certified</div>
+            <div class="cert-detail">Certification conforme aux exigences islamiques.</div>
           </div>
-          <div class="cert-card">
-            <div class="cert-icon">🇲🇦</div>
-            <div class="cert-name">Made in Maroc</div>
-            <div class="cert-detail">Fier de ses origines</div>
+          <div class="cert-card reveal">
+            <div class="cert-icon" aria-hidden="true">♻️</div>
+            <div class="cert-name">Packaging Recyclé</div>
+            <div class="cert-detail">100% des emballages recyclés ou biosourcés.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CTA BANNER ===== -->
-  <section class="cta-banner" aria-label="Appel à l'action">
+  <!-- CTA -->
+  <section class="cta-banner" aria-label="Commencer avec PURA">
     <div class="container">
-      <span class="section-label" style="color:rgba(255,255,255,0.6);justify-content:center">
-        <span style="background:rgba(255,255,255,0.4)"></span>
-        Commencez dès aujourd'hui
-      </span>
-      <h2>Prête à découvrir<br><em>votre routine PURA idéale ?</em></h2>
-      <p>Obtenez votre diagnostic IA personnalisé en 60 secondes. Gratuit. Sans inscription obligatoire.</p>
+      <h2>Prêt(e) à découvrir<br>votre vraie peau ?</h2>
+      <p>Rejoignez les premiers à bénéficier du diagnostic PURA Skin AI — gratuit, sans inscription, résultats en 60 secondes.</p>
       <div class="cta-buttons">
-        <a href="skin-ai.html" class="btn btn-white">
-          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-          Lancer mon diagnostic
-        </a>
-        <a href="produits.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:rgba(255,255,255,0.9)">Explorer les produits</a>
+        <a href="skin-ai.html" class="btn btn-white">Lancer mon diagnostic gratuit</a>
+        <a href="produits.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:rgba(255,255,255,0.9)">Explorer la gamme</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer aria-label="Pied de page PURA">
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" style="margin-bottom:12px">
-            <div class="nav-logo-mark">P</div>
+          <a href="index.html" class="nav-logo" style="margin-bottom:12px" aria-label="PURA — Accueil">
+            <div class="nav-logo-mark" aria-hidden="true">P</div>
             <span class="nav-logo-text">PURA</span>
           </a>
-          <p>La première marque marocaine de soins naturels certifiés avec diagnostic IA personnalisé. Naturalité, technologie, durabilité.</p>
+          <p>La première marque marocaine de soins naturels certifiés avec diagnostic IA personnalisé.</p>
+          <p style="font-size:0.78rem;margin-top:8px;color:rgba(255,255,255,0.35)"><a href="https://pura.ma" style="color:rgba(255,255,255,0.35)">pura.ma</a></p>
           <div class="footer-social">
-            <a href="#" class="social-link" aria-label="Instagram PURA">📷</a>
-            <a href="#" class="social-link" aria-label="TikTok PURA">🎵</a>
-            <a href="#" class="social-link" aria-label="Facebook PURA">📘</a>
-            <a href="#" class="social-link" aria-label="YouTube PURA">▶️</a>
+            <a href="https://instagram.com/puraskin.ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram @puraskin.ai">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://facebook.com/PURASkincare" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook PURA Skincare">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://pura.ma" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Site officiel pura.ma">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+            </a>
           </div>
         </div>
         <nav class="footer-col" aria-label="Navigation produits">
@@ -527,39 +650,72 @@
             <li><a href="produits.html">Booster Collagène</a></li>
             <li><a href="produits.html">Masque Hydratant</a></li>
             <li><a href="produits.html">Huile Précieuse Nuit</a></li>
-            <li><a href="produits.html">Bundle Bien-être Total</a></li>
+            <li><a href="produits.html">Bundle Complet</a></li>
           </ul>
         </nav>
         <nav class="footer-col" aria-label="Navigation marque">
           <h5>La marque</h5>
           <ul>
             <li><a href="about.html">Notre histoire</a></li>
-            <li><a href="about.html">Nos valeurs</a></li>
             <li><a href="skin-ai.html">PURA Skin AI</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Blog beauté</a></li>
+            <li><a href="https://instagram.com/puraskin.ai" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://facebook.com/PURASkincare" target="_blank" rel="noopener noreferrer">Facebook</a></li>
           </ul>
         </nav>
         <div class="footer-col footer-newsletter">
           <h5>Newsletter</h5>
-          <p>Conseils beauté, nouveautés et offres exclusives — directement dans votre boîte mail.</p>
+          <p>Conseils beauté, nouveautés et offres exclusives.</p>
           <form class="newsletter-form" aria-label="Inscription newsletter">
-            <input type="email" placeholder="votre@email.com" aria-label="Adresse e-mail" required />
+            <input type="email" placeholder="votre@email.com" required aria-label="Adresse email" />
             <button type="submit">OK</button>
           </form>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 PURA — Tous droits réservés. Marque déposée au Maroc.</p>
-        <div class="footer-certs">
-          <span>🌿 Ecocert</span>
-          <span>🐰 Cruelty Free</span>
-          <span>✡️ Halal</span>
-          <span>♻️ FSC</span>
+        <p>© 2026 PURA Skincare — <a href="https://pura.ma" style="color:rgba(255,255,255,0.3)">pura.ma</a> — Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGV</a>
         </div>
+        <div class="footer-certs" aria-label="Certifications"><span>🌿 Ecocert</span><span>🐰 Cruelty Free</span><span>✡️ Halal</span></div>
       </div>
     </div>
   </footer>
+
+  <!-- Product Modal -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-label="Détail produit">
+    <div class="modal">
+      <div class="modal-inner">
+        <div class="modal-visual" style="background:linear-gradient(135deg,#e8f5ee,#d4edd8)">
+          <button class="modal-close" onclick="closeModal()" aria-label="Fermer">✕</button>
+        </div>
+        <div class="modal-body">
+          <h3 class="modal-product-name">Sérum Éclat Vitamine C</h3>
+          <div class="modal-rating">
+            <span class="modal-stars modal-stars-val" aria-label="Note">★★★★★</span>
+            <span class="modal-rating-count modal-reviews">127 avis</span>
+          </div>
+          <div class="modal-price">
+            <span class="modal-price-val">280 MAD</span>
+            <span class="modal-price-vol">/ 30ml</span>
+          </div>
+          <p class="product-desc modal-product-desc">Description du produit.</p>
+          <div class="modal-ingredients">
+            <div class="ing-label">Ingrédients clés</div>
+            <div class="ing-tags modal-tags"></div>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-add">Ajouter au panier</button>
+            <button class="modal-wishlist" aria-label="Ajouter aux favoris">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L10 18.364l5.682-5.682a4.5 4.5 0 00-6.364-6.364L10 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
