@@ -245,3 +245,70 @@ document.querySelectorAll('.features-grid .feature-card, .products-grid .product
     revealObserver.observe(el);
   }
 });
+
+// ===== 3D LUXURY UPGRADE =====
+
+// Product card 3D tilt on mouse move
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    card.style.transform = `perspective(900px) rotateX(${-dy * 6}deg) rotateY(${dx * 6}deg) translateY(-10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Feature card subtle tilt
+document.querySelectorAll('.feature-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    card.style.transform = `perspective(600px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Parallax on scroll for hero
+const heroSection = document.querySelector('.hero');
+if (heroSection) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const content = heroSection.querySelector('.hero-content');
+    const visual = heroSection.querySelector('.hero-visual');
+    if (content) content.style.transform = `translateY(${y * 0.12}px)`;
+    if (visual) visual.style.transform = `translateY(${y * 0.06}px)`;
+  }, { passive: true });
+}
+
+// Stagger reveal delay for result cards and cert cards
+document.querySelectorAll('.result-card, .cert-card, .value-item, .ai-step').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.12}s`;
+  if (!el.classList.contains('reveal')) {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  }
+});
+
+// Cursor glow effect (desktop only)
+if (window.matchMedia('(hover: hover)').matches) {
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position: fixed; width: 300px; height: 300px; pointer-events: none; z-index: 9999;
+    background: radial-gradient(circle, rgba(46,139,87,0.07) 0%, transparent 70%);
+    border-radius: 50%; transform: translate(-50%, -50%); transition: opacity 0.3s;
+    top: 0; left: 0;
+  `;
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}

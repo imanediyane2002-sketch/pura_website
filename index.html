@@ -19,6 +19,8 @@
 
   <link rel="canonical" href="https://pura.ma" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232E8B57'/><text y='.9em' font-size='70' x='18' font-family='serif' fill='white'>P</text></svg>" />
 
   <script type="application/ld+json">
@@ -72,6 +74,17 @@
 
   <!-- Hero -->
   <section class="hero" aria-label="Accueil PURA">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <!-- CSS floating particles -->
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle leaf" style="--sz:22px;--dur:9s;--delay:0s;--x1:20px;--x2:40px;--rot:200deg;left:8%;bottom:0"></div>
+      <div class="particle drop" style="--sz:12px;--dur:7s;--delay:1.5s;--x1:-10px;--x2:15px;--rot:150deg;left:20%;bottom:0"></div>
+      <div class="particle dot" style="--sz:7px;--dur:6s;--delay:0.5s;--x1:5px;--x2:-20px;--rot:270deg;left:35%;bottom:0"></div>
+      <div class="particle leaf" style="--sz:16px;--dur:11s;--delay:2s;--x1:-15px;--x2:30px;--rot:120deg;left:55%;bottom:0"></div>
+      <div class="particle drop" style="--sz:9px;--dur:8s;--delay:3s;--x1:20px;--x2:-10px;--rot:300deg;left:70%;bottom:0"></div>
+      <div class="particle dot" style="--sz:5px;--dur:7s;--delay:0.8s;--x1:-8px;--x2:12px;--rot:180deg;left:82%;bottom:0"></div>
+      <div class="particle leaf" style="--sz:14px;--dur:10s;--delay:4s;--x1:12px;--x2:-25px;--rot:240deg;left:92%;bottom:0"></div>
+    </div>
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
@@ -399,9 +412,11 @@
   <!-- Brand Slogan -->
   <div class="brand-slogan" aria-label="Slogan PURA">
     <div class="container">
+      <div class="luxury-divider"><span>✦ PURA ✦</span></div>
       <blockquote>
         "Votre peau, votre routine, <em>votre PURA.</em>"
       </blockquote>
+      <div class="luxury-divider"><span>pura.ma</span></div>
     </div>
   </div>
 
@@ -718,5 +733,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="three-scene.js" defer></script>
 </body>
 </html>
